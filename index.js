@@ -18,6 +18,7 @@ function search(){
   }else{
   var x = 5, y = 5, w=200, h=200;
   var term = genTerm(Math.floor(Math.random()));
+  searchCt += 1;    
   if (searchCt = 1){    
   win = window.open(`https://www.bing.com/search?q=${term}`, "", 
           "width=" + w + ",height=" + h);
