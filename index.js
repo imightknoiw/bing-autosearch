@@ -13,10 +13,10 @@ function search(){
   if (searchCt > document.getElementById("searchNum").value){
     stop()
   }else{
-  var x = 582, y = 145, w=200, h=200;
+  var x = 582, y = 250, w=205, h=200;
   var term = Math.random().toString(16).substr(2, 8);
   searchCt++;    
-  if (searchCt = 1){    
+  if (searchCt == 1){    
   win = window.open(`https://www.bing.com/search?q=${term}`, "", 
           "width=" + w + ",height=" + h);
   win.moveTo(x,y);
@@ -29,3 +29,4 @@ function start(){
   setInterval(search, 4500);
   document.getElementById("stopBtn").style.display = "block";  
 }
+window.onload = setInterval(function(){document.getElementById("searchCt").innerHTML = searchCt}, 1000);
