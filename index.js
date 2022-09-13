@@ -1,4 +1,4 @@
-var intvl1, intvl2
+var intvl1;
 var searchCt = 0;
 var win;
 function stop(){
@@ -31,7 +31,7 @@ function start(){
   intvl1 = setInterval(search, 4500);
   document.getElementById("stopBtn").style.display = "block";
   var elems = document.getElementsByClassName("hide");
-  for (var i = 0;i < thingsToHide.length;i++){
+  for (var i = 0;i < elems.length;i++){
     elems[i].style.display = "none";
 }
 }
