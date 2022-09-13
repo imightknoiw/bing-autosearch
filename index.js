@@ -12,7 +12,6 @@ function toggleElems() {
 
 function stop() {
     clearInterval(intvl1);
-    clearInterval(intvl2);
     searchCt = 0;
     document.getElementById("searchCt").innerHTML = searchCt;
     win.close();
@@ -20,13 +19,13 @@ function stop() {
     active = false;
     document.getElementById("stopBtn").style.display = "none";
     toggleElems();
-    searchNum.value = "";
+    document.getElementById("searchNum").value = "";
 }
 
 function search() {
     searchCt++;
-    if (searchCt > searchNum.value;) {
-        stop()
+    if (searchCt > document.getElementById("searchNum").value) {
+        stop();
     } else {
         var x = 582,
             y = 300,
@@ -49,5 +48,5 @@ function start() {
     intvl1 = setInterval(search, 4500);
     document.getElementById("stopBtn").style.display = "block";
     active = true;
-    toggleElems()
+    toggleElems();
 }
