@@ -23,7 +23,7 @@ function search(){
   }else if (searchCt > 1){
     win.location.href = `https://www.bing.com/search?q=${term}`;
   }
-  document.getElementById("searchCt").innerHTML = searchCt
+  document.getElementById("searchCt").innerHTML = searchCt;
 }
 }
 function start(){
@@ -34,4 +34,3 @@ function start(){
     elems[i].style.display = "none";
 }
 }
-window.onload = setInterval(function(){document.getElementById("searchCt").innerHTML = searchCt}, 1000);
