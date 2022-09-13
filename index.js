@@ -1,5 +1,5 @@
 var intvl1, intvl2;
-
+var start, stop;
 function genTerm(length) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -27,11 +27,11 @@ function search(){
   }
 }
 }
-function start(){
+start = function (){
   setInterval(search, 4500);
 }
 
-function stop(){
+stop = function (){
   clearInterval(intvl1);
   clearInterval(intvl2);
   searchCt = 0;
