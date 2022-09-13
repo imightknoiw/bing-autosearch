@@ -13,7 +13,7 @@ function search(){
   if (searchCt > document.getElementById("searchNum").value){
     stop()
   }else{
-  var x = 5, y = 5, w=200, h=200;
+  var x = 582, y = 145, w=200, h=200;
   var term = Math.random().toString(16).substr(2, 8);
   searchCt++;    
   if (searchCt = 1){    
@@ -29,8 +29,3 @@ function start(){
   setInterval(search, 4500);
   document.getElementById("stopBtn").style.display = "block";  
 }
-document.addEventListener("mousemove", () => {
-  let mousex = event.clientX; // Gets Mouse X
-  let mousey = event.clientY; // Gets Mouse Y
-  document.title = "X:"+mousex + " Y:"+mousey; // Prints data
-});
