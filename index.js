@@ -4,9 +4,15 @@ var searchCt = 0;
 var win;
 function toggleElems() {
     var elems = document.getElementsByClassName("hide");
+    if (active == true){
     for (var i = 0; i < elems.length; i++) {
-            elems[i].style.display = (!(active == false)) ? "none" : "block";
+            elems[i].style.display = "none";
     }
+    }else{
+    for (var i = 0; i < elems.length; i++) {
+            elems[i].style.display = "block";
+    }
+}
 }
 
 function stop() {
