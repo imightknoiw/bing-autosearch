@@ -12,9 +12,9 @@ function genTerm(length) {
 }
 
 function search(){
-  var x = 0, y = 0, w=200, h=200;
+  var x = 5, y = 5, w=200, h=200;
   var term = genTerm(Math.floor(Math.random()));
-  var win = window.open('https://www.bing.com/search?q=${term}', "", 
+  var win = window.open(`https://www.bing.com/search?q=${term}`, "", 
           "width=" + w + ",height=" + h);
   win.moveTo(x,y);
 }
