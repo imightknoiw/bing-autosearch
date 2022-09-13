@@ -11,12 +11,12 @@ function stop(){
   document.getElementById("stopBtn").style.display = "none";   
 }
 function search(){
+  searchCt++;
   if (searchCt > document.getElementById("searchNum").value){
     stop()
   }else{
   var x = 582, y = 500, w=205, h=200;
-  var term = Math.random().toString(16).substr(2, 8);
-  searchCt++;    
+  var term = Math.random().toString(16).substr(2, 8);    
   if (searchCt == 1){    
   win = window.open(`https://www.bing.com/search?q=${term}`, "", 
           "width=" + w + ",height=" + h);
