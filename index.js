@@ -2,9 +2,9 @@ var intvl1;
 var active = false;
 var searchCt = 0;
 var win;
-
+var searchNum = document.getElementById("searchNum");
 function toggleElems() {
-    active = !active
+    active = !active;
     var elems = document.getElementsByClassName("hide");
     for (var i = 0; i < elems.length; i++) {
         if (active == true) {
@@ -20,16 +20,17 @@ function stop() {
     clearInterval(intvl2);
     searchCt = 0;
     document.getElementById("searchCt").innerHTML = searchCt;
-    win.close()
+    win.close();
     win = null;
     active = false;
     document.getElementById("stopBtn").style.display = "none";
     toggleElems();
+    searchNum.value = "";
 }
 
 function search() {
     searchCt++;
-    if (searchCt > document.getElementById("searchNum").value && active == true) {
+    if (searchCt > searchNum.value;) {
         stop()
     } else {
         var x = 582,
@@ -40,7 +41,7 @@ function search() {
         if (searchCt == 1) {
             win = window.open(`https://www.bing.com/search?q=${term}`, "", "width=" + w + ",height=" + h);
             win.moveTo(x, y);
-            win.scroll(0, 100);
+            win.scroll(0, 500);
         } else if (searchCt > 1) {
             win.location.href = `https://www.bing.com/search?q=${term}`;
             win.scroll(0, 100);
