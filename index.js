@@ -1,22 +1,20 @@
 var intvl1, intvl2
-function genTerm(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * 
- charactersLength));
-   }
-   return result;
-}
 var searchCt = 0;
 var win;
+function stop(){
+  clearInterval(intvl1);
+  clearInterval(intvl2);
+  searchCt = 0;  
+  win.close()
+  win = null;
+  document.getElementById("stopBtn").style.display = "none";   
+}
 function search(){
   if (searchCt > document.getElementById("searchNum").value){
     stop()
   }else{
   var x = 5, y = 5, w=200, h=200;
-  var term = genTerm(Math.floor(Math.random()));
+  var term = Math.random().toString(16).substr(2, 8);
   searchCt++;    
   if (searchCt = 1){    
   win = window.open(`https://www.bing.com/search?q=${term}`, "", 
@@ -31,12 +29,8 @@ function start(){
   setInterval(search, 4500);
   document.getElementById("stopBtn").style.display = "block";  
 }
-
-function stop(elem){
-  clearInterval(intvl1);
-  clearInterval(intvl2);
-  searchCt = 0;  
-  win.close()
-  win = null;
-  document.getElementById("stopBtn").style.display = "none";   
-}
+document.addEventListener("mousemove", () => {
+  let mousex = event.clientX; // Gets Mouse X
+  let mousey = event.clientY; // Gets Mouse Y
+  document.title = "X:"+mousex + " Y:"+mousey; // Prints data
+});
