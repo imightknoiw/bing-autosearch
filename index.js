@@ -23,10 +23,15 @@ function search(){
   }else if (searchCt > 1){
     win.location.href = `https://www.bing.com/search?q=${term}`;
   }
+  document.getElementById("searchCt").innerHTML = searchCt
 }
 }
 function start(){
-  setInterval(search, 4500);
-  document.getElementById("stopBtn").style.display = "block";  
+  intvl1 = setInterval(search, 4500);
+  document.getElementById("stopBtn").style.display = "block";
+  var elems = document.getElementsByClassName("hide");
+  for (var i = 0;i < thingsToHide.length;i++){
+    elems[i].style.display = "none";
+}
 }
 window.onload = setInterval(function(){document.getElementById("searchCt").innerHTML = searchCt}, 1000);
