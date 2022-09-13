@@ -10,15 +10,23 @@ function genTerm(length) {
    }
    return result;
 }
-
+var searchCt = 0;
+var win;
 function search(){
+  if (searchCt > document.getElementByName("searchNum")[0].value;){
+    stop()
+  }else{
   var x = 5, y = 5, w=200, h=200;
   var term = genTerm(Math.floor(Math.random()));
-  var win = window.open(`https://www.bing.com/search?q=${term}`, "", 
+  if (searchCt = 1){    
+  win = window.open(`https://www.bing.com/search?q=${term}`, "", 
           "width=" + w + ",height=" + h);
   win.moveTo(x,y);
+  }else if (searchCt > 1){
+    win.location.href = `https://www.bing.com/search?q=${term}`;
+  }
 }
-
+}
 function start(){
   setInterval(search, 4500);
 }
@@ -26,4 +34,7 @@ function start(){
 function stop(){
   clearInterval(intvl1);
   clearInterval(intvl2);
+  searchCt = 0;
+  win.close()
+  win = null;  
 }
