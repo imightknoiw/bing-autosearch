@@ -10,7 +10,7 @@ function toggleElems() {
         if (active == true) {
             elems[i].style.display = "none";
         } else {
-            elems[i].style.display = "none";
+            elems[i].style.display = "block";
         }
     }
 }
@@ -24,15 +24,14 @@ function stop() {
     win = null;
     active = false;
     document.getElementById("stopBtn").style.display = "none";
+    toggleElems();
 }
 
 function search() {
     searchCt++;
     if (searchCt > document.getElementById("searchNum").value && active == true) {
         stop()
-        active = false;
     } else {
-        active = true;
         var x = 582,
             y = 300,
             w = 205,
@@ -41,8 +40,10 @@ function search() {
         if (searchCt == 1) {
             win = window.open(`https://www.bing.com/search?q=${term}`, "", "width=" + w + ",height=" + h);
             win.moveTo(x, y);
+            win.scroll(0, 100);
         } else if (searchCt > 1) {
             win.location.href = `https://www.bing.com/search?q=${term}`;
+            win.scroll(0, 100);
         }
         document.getElementById("searchCt").innerHTML = searchCt;
     }
@@ -51,5 +52,6 @@ function search() {
 function start() {
     intvl1 = setInterval(search, 4500);
     document.getElementById("stopBtn").style.display = "block";
-
+    active = true;
+    toggleElems()
 }
