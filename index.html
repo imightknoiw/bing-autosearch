@@ -10,9 +10,9 @@
   <br/>
   <form onsubmit="return false;">
     <label for="searchNum">Searches:</label><br/>
-    <input type="number" name="searchNum" placeholder="#" value="30"></input>
+    <input type="number" id="searchNum" name="searchNum" placeholder="#" value="30" min="15"></input>
     <br/>
-    <input type="button" onclick="start()" value="Start"></input><input style="display: none;" type="button" onclick="stop()" value="Stop"></input>
+    <input type="button" onclick="start()" value="Start"></input><input style="display: none;" type="button" id="stopBtn" onclick="stop()" value="Stop"></input>
   </form>
 </center>  
 </body>
