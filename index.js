@@ -2,16 +2,11 @@ var intvl1;
 var active = false;
 var searchCt = 0;
 var win;
-var searchNum = document.getElementById("searchNum");
 function toggleElems() {
     active = !active;
     var elems = document.getElementsByClassName("hide");
     for (var i = 0; i < elems.length; i++) {
-        if (active == true) {
-            elems[i].style.display = "none";
-        } else {
-            elems[i].style.display = "block";
-        }
+            elems[i].style.display = (!(active == false)) ? "none" : "block";
     }
 }
 
