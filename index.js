@@ -13,7 +13,7 @@ function genTerm(length) {
 var searchCt = 0;
 var win;
 function search(){
-  if (searchCt > document.getElementByName("searchNum")[0].value;){
+  if (searchCt > document.getElementsByName("searchNum")[0].value;){
     stop()
   }else{
   var x = 5, y = 5, w=200, h=200;
@@ -28,11 +28,11 @@ function search(){
   }
 }
 }
-start = function (){
+start = function start(){
   setInterval(search, 4500);
 }
 
-stop = function (){
+stop = function stop(){
   clearInterval(intvl1);
   clearInterval(intvl2);
   searchCt = 0;
