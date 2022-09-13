@@ -3,7 +3,6 @@ var active = false;
 var searchCt = 0;
 var win;
 function toggleElems() {
-    active = !active;
     var elems = document.getElementsByClassName("hide");
     for (var i = 0; i < elems.length; i++) {
             elems[i].style.display = (!(active == false)) ? "none" : "block";
