@@ -18,7 +18,6 @@ function toggleElems() {
 function stop() {
     clearInterval(intvl1);
     searchCt = 0;
-    document.getElementById("searchCt").innerHTML = searchCt;
     win.close();
     win = null;
     active = false;
@@ -33,7 +32,7 @@ function search() {
         stop();
     } else {
         var x = 582,
-            y = 250,
+            y = 350,
             w = 205,
             h = 200;
         var term = Math.random().toString(16).substr(2, 8);
@@ -53,5 +52,6 @@ function start() {
     intvl1 = setInterval(search, 4500);
     document.getElementById("stopBtn").style.display = "block";
     active = true;
+    document.getElementById("searchCt").innerHTML = searchCt;
     toggleElems();
 }
