@@ -33,17 +33,17 @@ function search() {
         stop();
     } else {
         var x = 582,
-            y = 300,
+            y = 250,
             w = 205,
             h = 200;
         var term = Math.random().toString(16).substr(2, 8);
         if (searchCt == 1) {
             win = window.open(`https://www.bing.com/search?q=${term}`, "", "width=" + w + ",height=" + h);
             win.moveTo(x, y);
-            win.scroll(0, 500);
+            win.scroll(200, 0);
         } else if (searchCt > 1) {
             win.location.href = `https://www.bing.com/search?q=${term}`;
-            win.scroll(0, 100);
+            win.scroll(200, 0);
         }
         document.getElementById("searchCt").innerHTML = searchCt;
     }
