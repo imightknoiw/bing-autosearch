@@ -1,6 +1,11 @@
 var intvl1;
+var active = false;
 var searchCt = 0;
 var win;
+var elems = document.getElementsByClassName("hide");
+  for (var i = 0;i < elems.length;i++){
+    elems[i].style.display = "none";
+}
 function stop(){
   clearInterval(intvl1);
   clearInterval(intvl2);
@@ -8,13 +13,16 @@ function stop(){
   document.getElementById("searchCt").innerHTML = searchCt;
   win.close()
   win = null;
+  active = false;
   document.getElementById("stopBtn").style.display = "none";   
 }
 function search(){
   searchCt++;
-  if (searchCt > document.getElementById("searchNum").value){
+  if (searchCt > document.getElementById("searchNum").value && active == true){
     stop()
+    active = false;
   }else{
+  active = true;  
   var x = 582, y = 300, w=205, h=200;
   var term = Math.random().toString(16).substr(2, 8);    
   if (searchCt == 1){    
@@ -30,8 +38,5 @@ function search(){
 function start(){
   intvl1 = setInterval(search, 4500);
   document.getElementById("stopBtn").style.display = "block";
-  var elems = document.getElementsByClassName("hide");
-  for (var i = 0;i < elems.length;i++){
-    elems[i].style.display = "none";
-}
+  
 }
