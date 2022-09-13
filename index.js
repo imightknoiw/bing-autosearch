@@ -12,7 +12,7 @@ function genTerm(length) {
 var searchCt = 0;
 var win;
 function search(){
-  if (searchCt > document.getElementsByName("searchNum")[0].value;){
+  if (searchCt > document.getElementById("searchNum").value){
     stop()
   }else{
   var x = 5, y = 5, w=200, h=200;
@@ -29,7 +29,7 @@ function search(){
 }
 function start(){
   setInterval(search, 4500);
-  document.getElementsByTagName("input")[2].style.display = "block";  
+  document.getElementById("stopBtn").style.display = "block";  
 }
 
 function stop(elem){
@@ -38,5 +38,5 @@ function stop(elem){
   searchCt = 0;  
   win.close()
   win = null;
-  document.getElementsByTagName("input")[2].style.display = "none";   
+  document.getElementById("stopBtn").style.display = "none";   
 }
