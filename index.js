@@ -1,5 +1,4 @@
-var intvl1, intvl2;
-var start, stop;
+var intvl1, intvl2
 function genTerm(length) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -28,14 +27,16 @@ function search(){
   }
 }
 }
-start = function start(){
+function start(){
   setInterval(search, 4500);
+  document.getElementsByTagName("input")[2].style.display = "block";  
 }
 
-stop = function stop(){
+function stop(elem){
   clearInterval(intvl1);
   clearInterval(intvl2);
-  searchCt = 0;
+  searchCt = 0;  
   win.close()
-  win = null;  
+  win = null;
+  document.getElementsByTagName("input")[2].style.display = "none";   
 }
