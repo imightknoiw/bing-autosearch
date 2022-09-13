@@ -8,11 +8,12 @@
 <center>
   <h3>Bing AutoSearch</h3>
   <br/>
+  <p>Searches so far: <p id="searchCt"></p></p>
   <form onsubmit="return false;">
-    <label for="searchNum">Searches:</label><br/>
-    <input type="number" id="searchNum" name="searchNum" placeholder="#" value="30" min="15"></input>
+    <label class="hide" for="searchNum">Enter # of Searches:</label><br/>
+    <input class="hide" type="number" id="searchNum" name="searchNum" placeholder="#" value="30" min="15"></input>
     <br/>
-    <input type="button" onclick="start()" value="Start"></input><input style="display: none;" type="button" id="stopBtn" onclick="stop()" value="Stop"></input>
+    <input type="button" class="hide" onclick="start()" value="Start"></input><input style="display: none;" type="button" id="stopBtn" onclick="stop()" value="Stop"></input>
   </form>
 </center>  
 </body>
