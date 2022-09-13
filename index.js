@@ -4,7 +4,8 @@ var win;
 function stop(){
   clearInterval(intvl1);
   clearInterval(intvl2);
-  searchCt = 0;  
+  searchCt = 0;
+  document.getElementById("searchCt").innerHTML = searchCt;
   win.close()
   win = null;
   document.getElementById("stopBtn").style.display = "none";   
