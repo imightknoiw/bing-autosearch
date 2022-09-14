@@ -32,7 +32,7 @@ function search() {
         stop();
     } else {
         var x = 582,
-            y = 390,
+            y = 370,
             w = 205,
             h = 200;
         var term = Math.random().toString(16).substr(2, 8);
