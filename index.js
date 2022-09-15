@@ -42,6 +42,7 @@ function search() {
         } else if (searchCt > 1) {
             win.location.href = `https://www.bing.com/search?q=${term}`;
         }
+        win.document.scroll(0,findPos(win.document.getElementById("id_rc")));
         document.getElementById("searchCt").innerHTML = searchCt;
     }
 }
