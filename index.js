@@ -37,12 +37,11 @@ function search() {
             h = 200;
         var term = Math.random().toString(16).substr(2, 8);
         if (searchCt == 1) {
-            win = window.open(`https://www.bing.com/search?q=${term}`, "", "width=" + w + ",height=" + h+",status=no,left=200");
+            win = window.open(`https://www.bing.com/search?q=${term}#id_rc`, "", "width=" + w + ",height=" + h+",status=no,left=200");
             win.moveTo(x, y);
         } else if (searchCt > 1) {
-            win.location.href = `https://www.bing.com/search?q=${term}`;
+            win.location.href = `https://www.bing.com/search?q=${term}#id_rc`;
         }
-        win.document.scroll(0,findPos(win.document.getElementById("id_rc")));
         document.getElementById("searchCt").innerHTML = searchCt;
     }
 }
