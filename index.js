@@ -2,21 +2,22 @@ var intvl1;
 var active = false;
 var searchCt = 0;
 var win;
+
 function toggleElems() {
     var elems = document.getElementsByClassName("hide");
-    if (active == true){
-    for (var i = 0; i < elems.length; i++) {
+    if (active == true) {
+        for (var i = 0; i < elems.length; i++) {
             elems[i].style.display = "none";
-    }
-    }else{
-    for (var i = 0; i < elems.length; i++) {
+        }
+    } else {
+        for (var i = 0; i < elems.length; i++) {
             elems[i].style.display = "block";
+        }
     }
-}
 }
 
 function stop() {
-    clearInterval(intvl1);
+    clearInterval(intvl);
     searchCt = 0;
     win.close();
     win = null;
@@ -37,7 +38,7 @@ function search() {
             h = 200;
         var term = Math.random().toString(16).substr(2, 8);
         if (searchCt == 1) {
-            win = window.open(`https://www.bing.com/search?q=${term}#id_rc`, "", "width=" + w + ",height=" + h+",status=no,left=200");
+            win = window.open(`https://www.bing.com/search?q=${term}#id_rc`, "", "width=" + w + ",height=" + h + ",status=no,left=200");
             win.moveTo(x, y);
         } else if (searchCt > 1) {
             win.location.href = `https://www.bing.com/search?q=${term}#id_rc`;
@@ -47,7 +48,16 @@ function search() {
 }
 
 function start() {
-    intvl1 = setInterval(search, 4500);
+    var searchItvl = document.getElementById("searchIntvl");
+    if (searchItv1.value.length > 3) {
+        intvl = setInterval(search, searchItvl);
+    } else if (searchItv1.value.length == 1) {
+        searchItvl = Math.round(searchInvtl * 1000)
+        intvl = setInterval(search, searchItvl);
+    } else {
+        searchItvl = Math.round(3500);
+        intvl = setInterval(search, searchItvl);
+    }
     document.getElementById("stopBtn").style.display = "block";
     active = true;
     document.getElementById("searchCt").innerHTML = searchCt;
