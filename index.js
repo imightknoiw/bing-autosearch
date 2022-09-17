@@ -48,18 +48,9 @@ function search() {
 }
 
 function start() {
-    var searchIntvl = document.getElementById("searchIntvl");
-    if (searchIntv1.value.length > 3) {
-        intvl = setInterval(search, searchIntvl);
-    } else if (searchIntv1.value.length = 1) {
-        searchIntvl = Math.round(searchInvtl.value * 1000)
-        intvl = setInterval(search, searchIntvl);
-    } else {
-        searchIntvl = 3500;
-        intvl = setInterval(search, searchIntvl);
-    }
-    document.getElementById("stopBtn").style.display = "block";
+    intvl = setInterval(search, 3500);
     active = true;
-    document.getElementById("searchCt").innerHTML = searchCt;
+    document.getElementById("stopBtn").style.display = "block";
     toggleElems();
+    document.getElementById("searchCt").innerHTML = searchCt;
 }
