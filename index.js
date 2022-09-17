@@ -48,15 +48,15 @@ function search() {
 }
 
 function start() {
-    var searchItvl = document.getElementById("searchIntvl");
-    if (searchItv1.value.length > 3) {
-        intvl = setInterval(search, searchItvl);
-    } else if (searchItv1.value.length == 1) {
-        searchItvl = Math.round(searchInvtl * 1000)
-        intvl = setInterval(search, searchItvl);
+    var searchIntvl = document.getElementById("searchIntvl");
+    if (searchIntv1.value.length > 3) {
+        intvl = setInterval(search, searchIntvl);
+    } else if (searchIntv1.value.length = 1) {
+        searchIntvl = Math.round(searchInvtl.value * 1000)
+        intvl = setInterval(search, searchIntvl);
     } else {
-        searchItvl = Math.round(3500);
-        intvl = setInterval(search, searchItvl);
+        searchIntvl = 3500;
+        intvl = setInterval(search, searchIntvl);
     }
     document.getElementById("stopBtn").style.display = "block";
     active = true;
