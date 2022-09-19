@@ -48,7 +48,7 @@ function search() {
 }
 
 function start() {
-    intvl = setInterval(search, 3500);
+    intvl = setInterval(search, 4000);
     active = true;
     document.getElementById("stopBtn").style.display = "block";
     toggleElems();
