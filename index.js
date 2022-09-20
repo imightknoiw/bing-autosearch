@@ -36,7 +36,7 @@ function search() {
     searchCt++;
     if (searchCt > searchGoal) {
         stop();
-    } else if (searchCt < searchGoal) {
+    } else {
             win.location.href = `https://www.bing.com/search?q=${randomStr()}#id_rc`;
             document.getElementById("searchCt").innerHTML = searchCt;
      }
@@ -45,13 +45,13 @@ function start() {
     searchGoal = document.getElementById("searchNum").value; 
     var x = 582,y = 335,w = 205,h = 200;
     win = window.open(`https://www.bing.com/search?q=${randomStr()}#id_rc`, "", "width=" + w + ",height=" + h + ",status=no");
-    intvl2 = setInterval(checkClose, 500);
     win.moveTo(x, y);
     searchCt++;
     document.getElementById("searchCt").innerHTML = searchCt;
     active = true;
     document.getElementById("stopBtn").style.display = "block";
     intvl1 = setInterval(search, 3700);
+    intvl2 = setInterval(checkClose, 500);
     toggleElems();
 }
 
