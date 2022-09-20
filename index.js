@@ -31,10 +31,10 @@ function stop() {
 }
 
 function search() {
+    searchCt++;
     if (searchCt > document.getElementById("searchNum").value) {
         stop();
-    } else if (searchCt > 0) {
-            searchCt++;
+    } else if (searchCt < document.getElementById("searchNum").value) {
             win.location.href = `https://www.bing.com/search?q=${randomStr()}#id_rc`;
             waitLoad();
         }
