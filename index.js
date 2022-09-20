@@ -42,11 +42,6 @@ function search() {
         } 
      }
 }
-function waitLoad(){
-    if (active == true){
-    win.addEventListener('load', function(){setTimeout(search, 3000)});
-    }
-}
 function start() {
     searchGoal = document.getElementById("searchNum").value; 
     var x = 582,y = 335,w = 205,h = 200;
@@ -55,7 +50,7 @@ function start() {
     win.moveTo(x, y);
     searchCt++;
     document.getElementById("searchCt").innerHTML = searchCt;
-    waitLoad();
+    win.addEventListener('load', function(){setTimeout(search, 3000)});
     active = true;
     document.getElementById("stopBtn").style.display = "block";
     toggleElems();
