@@ -1,7 +1,8 @@
 var win;
+var intvl1, intvl2;
 var active = false;
 var searchCt = 0;
-var searchGoal, timer;
+var searchGoal;
 function randomStr(){
 let str = Math.random().toString(16).substr(2, 8);
 return str;
@@ -35,24 +36,22 @@ function search() {
     searchCt++;
     if (searchCt > searchGoal) {
         stop();
-    } else{ if (searchCt < searchGoal) {
+    } else if (searchCt < searchGoal) {
             win.location.href = `https://www.bing.com/search?q=${randomStr()}#id_rc`;
             document.getElementById("searchCt").innerHTML = searchCt;
-            waitLoad();
-        } 
      }
 }
 function start() {
     searchGoal = document.getElementById("searchNum").value; 
     var x = 582,y = 335,w = 205,h = 200;
     win = window.open(`https://www.bing.com/search?q=${randomStr()}#id_rc`, "", "width=" + w + ",height=" + h + ",status=no");
-    timer = setInterval(checkClose, 500);
+    intvl2 = setInterval(checkClose, 500);
     win.moveTo(x, y);
     searchCt++;
     document.getElementById("searchCt").innerHTML = searchCt;
-    win.addEventListener('load', function(){setTimeout(search, 3000)});
     active = true;
     document.getElementById("stopBtn").style.display = "block";
+    intvl1 = setInterval(search, 3700);
     toggleElems();
 }
 
