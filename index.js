@@ -1,7 +1,7 @@
-var win = null;
+var win;
 var active = false;
 var searchCt = 0;
-var searchGoal;
+var searchGoal, timer;
 function randomStr(){
 let str = Math.random().toString(16).substr(2, 8);
 return str;
@@ -19,9 +19,11 @@ function toggleElems() {
     }
 }
 
-function stop() {
+function stop(closed = false) {
     searchCt = 0;
+    if (closed == false){
     win.close();
+    }
     win = null;
     active = false;
     document.getElementById("stopBtn").style.display = "none";
@@ -33,19 +35,23 @@ function search() {
     searchCt++;
     if (searchCt > searchGoal) {
         stop();
-    } else if (searchCt < searchGoal) {
+    } else{ if (searchCt < searchGoal) {
             win.location.href = `https://www.bing.com/search?q=${randomStr()}#id_rc`;
+            document.getElementById("searchCt").innerHTML = searchCt;
             waitLoad();
-        }
-        document.getElementById("searchCt").innerHTML = searchCt;
+        } 
+     }
 }
 function waitLoad(){
+    if (active == true){
     win.addEventListener('load', function(){setTimeout(search, 3000)});
+    }
 }
 function start() {
     searchGoal = document.getElementById("searchNum").value; 
     var x = 582,y = 335,w = 205,h = 200;
     win = window.open(`https://www.bing.com/search?q=${randomStr()}#id_rc`, "", "width=" + w + ",height=" + h + ",status=no");
+    timer = setInterval(checkClose, 500);
     win.moveTo(x, y);
     searchCt++;
     document.getElementById("searchCt").innerHTML = searchCt;
@@ -54,12 +60,10 @@ function start() {
     document.getElementById("stopBtn").style.display = "block";
     toggleElems();
 }
-var child = window.open('http://google.com','','toolbar=0,status=0,width=626,height=436');
-var timer = setInterval(checkChild, 500);
 
 function checkClose() {
     if (win.closed) {
-        alert("Child window closed");   
+        stop(true);
         clearInterval(timer);
     }
 }
