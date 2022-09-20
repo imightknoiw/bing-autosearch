@@ -10,11 +10,11 @@ return str;
 function toggleElems() {
     var elems = document.getElementsByClassName("hide");
     if (active == true) {
-        for (var i = 0; i < elems.length; i++) {
+        for (let i = 0; i < elems.length; i++) {
             elems[i].style.display = "none";
         }
     } else {
-        for (var i = 0; i < elems.length; i++) {
+        for (let i = 0; i < elems.length; i++) {
             elems[i].style.display = "block";
         }
     }
@@ -58,6 +58,6 @@ function start() {
 function checkClose() {
     if (win.closed) {
         stop(true);
-        clearInterval(timer);
+        clearInterval(intvl2);
     }
 }
