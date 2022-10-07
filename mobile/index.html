@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bing AutoSearch</title>
+  <link rel="icon" href="https://www.bing.com/sa/simg/favicon-trans-bg-blue-mg.ico" />
+  <script src="index.js"></script>
+</head>
+<body>
+<center>
+  <a href="https://rewards.bing.com/" target="_blank"><h3>Bing AutoSearch</h3></a>
+  <br/>
+  <form onsubmit="return false;">
+    <input type="radio" id="deviceTypePC" name="deviceType" value="PC">
+  <label for="deviceTypePC">PC</label><br>
+  <input type="radio" id="deviceTypeMobile" name="deviceType" value="MOBILE">
+  <label for="deviceTypeMobile">Mobile</label>
+    <br/>
+    <input type="button" class="hide" onclick="start()" value="Switch"></input><input style="display: none;" type="button" id="stopBtn" onclick="javascript:window.location.reload();" value="Close"></input>
+  </form>
+<iframe style="visibility:hidden;" frameborder="0" width="100%" height="500px" src="https://google.com"></iframe>
+<footer style="position: absolute;bottom: 0;"><a href="/mobile">Normal desktop searches</a></footer>
+</center>  
+</body>
+</html>
