@@ -38,7 +38,7 @@ function search() {
         stop();
     } else {
             win.location.href = `https://www.bing.com/search?q=${randomStr()}#id_rc`;
-            win.blur();
+            window.focus();
             document.getElementById("searchCt").innerHTML = searchCt;
      }
 }
@@ -47,7 +47,7 @@ function start() {
     var x = 582,y = 335,w = 205,h = 200;
     win = window.open(`https://www.bing.com/search?q=${randomStr()}#id_rc`, "", "width=" + w + ",height=" + h + ",status=no");
     win.moveTo(x, y);
-    win.blur();
+    window.focus();
     searchCt++;
     document.getElementById("searchCt").innerHTML = searchCt;
     active = true;
